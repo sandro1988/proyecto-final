@@ -123,3 +123,21 @@ class FamiliarDetalle(DetailView):
 
 class CocheList(ListView):
   model = Coche
+
+class CocheCrear(CreateView):
+  model = Coche
+  success_url = "/panel-coche"
+  fields = ["marca", "modelo", "anio", "km"]
+
+class CocheBorrar(DeleteView):
+  model = Coche
+  success_url = "/panel-coche"
+
+class CocheActualizar(UpdateView):
+  model = Coche
+  success_url = "/panel-coche"
+  fields = ["marca", "modelo", "anio", "km"]
+
+class CocheDetalle(DetailView):
+  model = Coche
+
