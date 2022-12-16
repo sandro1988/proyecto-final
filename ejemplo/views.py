@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from ejemplo.models import Familiar
+from ejemplo.models import Familiar, Coche
 from ejemplo.forms import Buscar, FamiliarForm
 from django.views import View
 from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
@@ -116,3 +116,10 @@ class FamiliarActualizar(UpdateView):
 
 class FamiliarDetalle(DetailView):
   model = Familiar
+
+
+
+  #-------------------
+
+class CocheList(ListView):
+  model = Coche
