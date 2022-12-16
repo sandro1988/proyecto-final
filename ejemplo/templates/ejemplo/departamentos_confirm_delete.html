@@ -10,8 +10,8 @@
 
     <form method="post">
         {% csrf_token %}
-        "¿ Estás seguro de borrar el coche {{ object.nombre }} ?"
-        <a href="/panel-coche" type="button">NO</a>
+        "¿ Estás seguro de borrar el departamento {{ object.nombre }} ?"
+        <a href="/panel-departamentos" type="button">NO</a>
         <input type="submit" value="SI">
     </form>
 

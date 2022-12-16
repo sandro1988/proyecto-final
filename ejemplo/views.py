@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from ejemplo.models import Familiar, Coche
+from ejemplo.models import Familiar, Coche, Departamentos
 from ejemplo.forms import Buscar, FamiliarForm
 from django.views import View
 from django.views.generic import DetailView, ListView, CreateView, DeleteView, UpdateView
@@ -140,4 +140,26 @@ class CocheActualizar(UpdateView):
 
 class CocheDetalle(DetailView):
   model = Coche
+
+ #-------------------
+
+class DepartamentosList(ListView):
+  model = Departamentos
+
+class DepartamentosCrear(CreateView):
+  model = Departamentos
+  success_url = "/panel-departamentos"
+  fields = ["m2", "habitaciones", "barrio", "anios", "precio"]
+
+class DepartamentosBorrar(DeleteView):
+  model = Departamentos
+  success_url = "/panel-departamentos"
+
+class DepartamentosActualizar(UpdateView):
+  model = Departamentos
+  success_url = "/panel-departamentos"
+  fields = ["m2", "habitaciones", "barrio", "anios", "precio"]
+
+class DepartamentosDetalle(DetailView):
+  model = Departamentos
 

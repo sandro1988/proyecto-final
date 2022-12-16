@@ -18,3 +18,12 @@ class Coche(models.Model):
     km = models.IntegerField()
     def __str__(self):
       return f"{self.marca}, {self.modelo}, {self.anio}, {self.km}"
+
+class Departamentos(models.Model):
+    m2 = models.CharField(max_length=100)
+    habitaciones = models.CharField(max_length=100)
+    barrio = models.CharField(max_length=100)
+    anios = models.IntegerField()
+    precio = models.IntegerField()
+    def __str__(self):
+      return f"{self.m2}, {self.habitaciones}, {self.barrio}, {self.anios}, {self.precio}"
