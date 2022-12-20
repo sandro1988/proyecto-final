@@ -34,7 +34,7 @@ Si existen registros apareceran listados en esta página, en caso contrario la p
 
 11- Si se desea ver solamente un registro en particular, poner poner en la url /panel-coche/<int:pk>/detalle.
 
-# <int:pk> hace referencia al numero de identificacion unico, el cual se puede obtener en la vista panel-coche (paso 7).
+<int:pk> hace referencia al numero de identificacion unico, el cual se puede obtener en la vista panel-coche (paso 7).
 
 Si desea consultar otro registro, reemplazar coche por familiar o departamentos respectivamente.
 

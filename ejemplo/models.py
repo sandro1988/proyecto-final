@@ -27,3 +27,6 @@ class Departamentos(models.Model):
     precio = models.IntegerField()
     def __str__(self):
       return f"{self.m2}, {self.habitaciones}, {self.barrio}, {self.anios}, {self.precio}"
+
+
+#------

@@ -19,6 +19,9 @@ from ejemplo.views import (index, saludar_a, sumar, monstrar_familiares, BuscarF
  FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar, FamiliarDetalle,
  CocheList, CocheCrear, CocheBorrar, CocheActualizar, CocheDetalle,
  DepartamentosList, DepartamentosCrear, DepartamentosBorrar, DepartamentosActualizar, DepartamentosDetalle,)
+from ejemplo_dos.views import index, PostList, PostCrear
+from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
+                               UserSignUp, UserLogin, UserLogout)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -48,5 +51,18 @@ urlpatterns = [
     path('panel-departamentos/<int:pk>/borrar', DepartamentosBorrar.as_view()),
     path('panel-departamentos/<int:pk>/actualizar', DepartamentosActualizar.as_view()),
     path('panel-departamentos/<int:pk>/detalle', DepartamentosDetalle.as_view()),
-    
+
+    #----Ejemplo Dos ----
+    path('ejemplo-dos/', index, name="ejemplo-dos-index"),
+    path('ejemplo-dos/listar/', PostList.as_view(), name="ejemplo-dos-listar"),
+        path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
+    path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
+    path('ejemplo-dos/crear/', PostCrear.as_view(), name="ejemplo-dos-crear"),
+    path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
+    path('ejemplo-dos/<int:pk>/actualizar/', PostActualizar.as_view(), name="ejemplo-dos-actualizar"),
+
+    #Registro de ususarios, login y logout
+    path('ejemplo-dos/signup/', UserSignUp.as_view(), name = "ejemplo-dos-signup"),
+    path('ejemplo-dos/login/', UserLogin.as_view(), name = "ejemplo-dos-login"),
+    path('ejemplo-dos/logout/', UserLogout.as_view(), name = "ejemplo-dos-logout"),
     ]
