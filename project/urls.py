@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from ejemplo.views import (index, saludar_a, sumar, monstrar_familiares, BuscarFamiliar, AltaFamiliar, ActualizarFamiliar, BorrarFamiliar,
@@ -21,7 +23,8 @@ from ejemplo.views import (index, saludar_a, sumar, monstrar_familiares, BuscarF
  DepartamentosList, DepartamentosCrear, DepartamentosBorrar, DepartamentosActualizar, DepartamentosDetalle,)
 from ejemplo_dos.views import index, PostList, PostCrear
 from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
-                               UserSignUp, UserLogin, UserLogout)
+                               UserSignUp, UserLogin, UserLogout,
+                               AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -65,4 +68,18 @@ urlpatterns = [
     path('ejemplo-dos/signup/', UserSignUp.as_view(), name = "ejemplo-dos-signup"),
     path('ejemplo-dos/login/', UserLogin.as_view(), name = "ejemplo-dos-login"),
     path('ejemplo-dos/logout/', UserLogout.as_view(), name = "ejemplo-dos-logout"),
+
+    #Imagenes
+    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name = "ejemplo-dos-avatars-actualizar"),
+
+    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name = "ejemplo-dos-users-actualizar"),
+
+    #Mensajeria
+    path('ejemplo-dos/mensajes/crear/', MensajeCrear.as_view(), name = "ejemplo-dos-mensajes-crear"),
+    path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "ejemplo-dos-mensajes-detalle"),
+    path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name = "ejemplo-dos-mensajes-listar"),
+    path('ejemplo-dos/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "ejemplo-dos-mensajes-borrar"),
+
     ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    
