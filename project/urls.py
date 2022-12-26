@@ -21,7 +21,7 @@ from ejemplo.views import (index, saludar_a, sumar, monstrar_familiares, BuscarF
  FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar, FamiliarDetalle,
  CocheList, CocheCrear, CocheBorrar, CocheActualizar, CocheDetalle,
  DepartamentosList, DepartamentosCrear, DepartamentosBorrar, DepartamentosActualizar, DepartamentosDetalle,)
-from ejemplo_dos.views import index, PostList, PostCrear
+from ejemplo_dos.views import index, about, PostList, PostCrear
 from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
                                UserSignUp, UserLogin, UserLogout,
                                AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
@@ -58,7 +58,7 @@ urlpatterns = [
     #----Ejemplo Dos ----
     path('ejemplo-dos/', index, name="ejemplo-dos-index"),
     path('ejemplo-dos/listar/', PostList.as_view(), name="ejemplo-dos-listar"),
-        path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
+    path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
     path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
     path('ejemplo-dos/crear/', PostCrear.as_view(), name="ejemplo-dos-crear"),
     path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
@@ -79,6 +79,11 @@ urlpatterns = [
     path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "ejemplo-dos-mensajes-detalle"),
     path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name = "ejemplo-dos-mensajes-listar"),
     path('ejemplo-dos/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "ejemplo-dos-mensajes-borrar"),
+
+
+    #about
+    path('ejemplo-dos/about', about, name="ejemplo-dos-about"),
+    
 
     ]
 

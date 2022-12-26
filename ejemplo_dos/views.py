@@ -43,13 +43,13 @@ class PostActualizar(LoginRequiredMixin, UpdateView):
 class UserSignUp(CreateView):
     form_class = UsuarioForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('ejemplo-dos-listar')
+    success_url = reverse_lazy('ejemplo-dos-login')
 
 class UserLogin(LoginView):
     next_page = reverse_lazy('ejemplo-dos-listar')
 
 class UserLogout(LogoutView):
-    next_page = reverse_lazy('ejemplo-dos-listar')
+    next_page = reverse_lazy('ejemplo-dos-login')
 
 class AvatarActualizar(UpdateView):
     model = Avatar
@@ -79,4 +79,12 @@ class MensajeCrear(CreateView):
 class MensajeBorrar(DeleteView):
     model = Mensaje
     success_url = reverse_lazy("ejemplo-dos-mensajes-listar")
+
+#about
+def about(request):
+    return render(request, 'ejemplo_dos/about.html')
+
+
+
+
 
