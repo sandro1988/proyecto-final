@@ -5,9 +5,11 @@
 {% if user.is_authenticated %}
 <a href="{% url 'fut-blog-crear' %}">Crear Post</a>
 /
-
-
+<a href="{% url 'fut-blog-avatars-actualizar' user.id %}">Actualizar Avatar</a>
 /
+<a href="{% url 'fut-blog-users-actualizar' user.id %}">Actualizar Info</a>
+/
+<a href="{% url 'fut-blog-mensajes-listar' %}">Mensajes</a>
 
 {% endif %}
 

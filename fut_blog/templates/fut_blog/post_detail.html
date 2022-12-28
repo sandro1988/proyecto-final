@@ -3,10 +3,12 @@
 
 {% block contenido %}
 <h1>Titulo: {{object.titulo}}</h1>
-<h2>Subtitulo: {{object.sub_titulo}}</h2>
-
+<h2>Subtitulo: {{object.subtitulo}}</h2>
+<div>
+    <img height="175" src="{{object.imagen.url}}">
 </div>
-Contenido: {{object.texto}}
+</div>
+{{object.texto}}
 </div>
 <h6>Fecha publicacion: {{object.publicado_el}}</h6>
 <a href="{% url 'fut-blog-listar' %}">Volver</a>

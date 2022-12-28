@@ -21,15 +21,16 @@ from ejemplo.views import (index, saludar_a, sumar, monstrar_familiares, BuscarF
  FamiliarList, FamiliarCrear, FamiliarBorrar, FamiliarActualizar, FamiliarDetalle,
  CocheList, CocheCrear, CocheBorrar, CocheActualizar, CocheDetalle,
  DepartamentosList, DepartamentosCrear, DepartamentosBorrar, DepartamentosActualizar, DepartamentosDetalle,)
-from ejemplo_dos.views import index, about, PostList, PostCrear
-from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
-                               UserSignUp, UserLogin, UserLogout,
-                               AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
+#from ejemplo_dos.views import index, about, PostList, PostCrear
+#from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
+                               #UserSignUp, UserLogin, UserLogout,
+                               #AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
-from fut_blog.views import index, PostList, PostCrear
+from fut_blog.views import index, about, PostList, PostCrear
 from fut_blog.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
                             UserSignUp, UserLogin, UserLogout,
-                            AvatarActualizar)
+                            AvatarActualizar, UserActualizar,
+                            MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
 
 
@@ -81,6 +82,18 @@ urlpatterns = [
 
     #FUTBLOG AVATARES
     path('fut-blog/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name = "fut-blog-avatars-actualizar"),
+    
+    # ACT INFO
+    path('fut-blog/users/<int:pk>/actualizar/', UserActualizar.as_view(), name = "fut-blog-users-actualizar"),
+
+    # MENSAJERIA
+    path('fut-blog/mensajes/crear/', MensajeCrear.as_view(), name = "fut-blog-mensajes-crear"),
+    path('fut-blog/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "fut-blog-mensajes-detalle"),
+    path('fut-blog/mensajes/listar/', MensajeListar.as_view(), name = "fut-blog-mensajes-listar"),
+    path('fut-blog/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "fut-blog-mensajes-borrar"),
+
+    # ABOUT
+    path('fut-blog/about', about, name="fut-blog-about"),
 
     ]
 
