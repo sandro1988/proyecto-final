@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ejemplo.apps.EjemploConfig', # ESTA ES LA NUEVA APP !!
     'ejemplo_dos.apps.EjemploDosConfig',
+    'fut_blog.apps.FutBlogConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -125,7 +127,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'ejemplo-dos-login'
+# LOGIN_URL = 'ejemplo-dos-login'
+LOGIN_URL = 'fut-blog-login'
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "media/"

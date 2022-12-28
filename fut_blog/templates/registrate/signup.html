@@ -1,11 +1,10 @@
-{% extends 'ejemplo_dos/base.html' %}
-
+{% extends 'fut_blog/base1.html' %}
 
 {% block contenido %}
-     <h2>Registrar Usuario</h2>
+     <h2>Registro de Usuario</h2>
      <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Registrarme">
+        <input type="submit" value="Registrarse">
      </form>
 {% endblock %}

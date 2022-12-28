@@ -1,0 +1,14 @@
+{% extends 'fut_blog/base1.html' %}
+
+
+{% block contenido %}
+<h1>Titulo: {{object.titulo}}</h1>
+<h2>Subtitulo: {{object.sub_titulo}}</h2>
+
+</div>
+Contenido: {{object.texto}}
+</div>
+<h6>Fecha publicacion: {{object.publicado_el}}</h6>
+<a href="{% url 'fut-blog-listar' %}">Volver</a>
+
+{% endblock %}

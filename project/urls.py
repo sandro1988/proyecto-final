@@ -26,6 +26,13 @@ from ejemplo_dos.views import (PostDetalle, PostListar, PostCrear, PostBorrar, P
                                UserSignUp, UserLogin, UserLogout,
                                AvatarActualizar, UserActualizar, MensajeCrear, MensajeListar, MensajeDetalle, MensajeBorrar)
 
+from fut_blog.views import index, PostList, PostCrear
+from fut_blog.views import (PostDetalle, PostListar, PostCrear, PostBorrar, PostActualizar,
+                            UserSignUp, UserLogin, UserLogout,
+                            AvatarActualizar)
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('saludar/', index),
@@ -55,36 +62,28 @@ urlpatterns = [
     path('panel-departamentos/<int:pk>/actualizar', DepartamentosActualizar.as_view()),
     path('panel-departamentos/<int:pk>/detalle', DepartamentosDetalle.as_view()),
 
-    #----Ejemplo Dos ----
-    path('ejemplo-dos/', index, name="ejemplo-dos-index"),
-    path('ejemplo-dos/listar/', PostList.as_view(), name="ejemplo-dos-listar"),
-    path('ejemplo-dos/<int:pk>/detalle/', PostDetalle.as_view(), name="ejemplo-dos-detalle"),
-    path('ejemplo-dos/listar/', PostListar.as_view(), name="ejemplo-dos-listar"),
-    path('ejemplo-dos/crear/', PostCrear.as_view(), name="ejemplo-dos-crear"),
-    path('ejemplo-dos/<int:pk>/borrar/', PostBorrar.as_view(), name="ejemplo-dos-borrar"),
-    path('ejemplo-dos/<int:pk>/actualizar/', PostActualizar.as_view(), name="ejemplo-dos-actualizar"),
-
-    #Registro de ususarios, login y logout
-    path('ejemplo-dos/signup/', UserSignUp.as_view(), name = "ejemplo-dos-signup"),
-    path('ejemplo-dos/login/', UserLogin.as_view(), name = "ejemplo-dos-login"),
-    path('ejemplo-dos/logout/', UserLogout.as_view(), name = "ejemplo-dos-logout"),
-
-    #Imagenes
-    path('ejemplo-dos/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name = "ejemplo-dos-avatars-actualizar"),
-
-    path('ejemplo-dos/users/<int:pk>/actualizar/', UserActualizar.as_view(), name = "ejemplo-dos-users-actualizar"),
-
-    #Mensajeria
-    path('ejemplo-dos/mensajes/crear/', MensajeCrear.as_view(), name = "ejemplo-dos-mensajes-crear"),
-    path('ejemplo-dos/mensajes/<int:pk>/detalle/', MensajeDetalle.as_view(), name = "ejemplo-dos-mensajes-detalle"),
-    path('ejemplo-dos/mensajes/listar/', MensajeListar.as_view(), name = "ejemplo-dos-mensajes-listar"),
-    path('ejemplo-dos/mensajes/<int:pk>/borrar/', MensajeBorrar.as_view(), name = "ejemplo-dos-mensajes-borrar"),
-
-
-    #about
-    path('ejemplo-dos/about', about, name="ejemplo-dos-about"),
+  
     
+
+    #FUTBLOG APP
+    path('fut-blog/', index, name="fut-blog-index"),
+    path('fut-blog/listar/', PostList.as_view(), name="fut-blog-listar"),
+    path('fut-blog/<int:pk>/detalle/', PostDetalle.as_view(), name="fut-blog-detalle"),
+    path('fut-blog/listar/', PostListar.as_view(), name="fut-blog-listar"),
+    path('fut-blog/crear/', PostCrear.as_view(), name="fut-blog-crear"),
+    path('fut-blog/<int:pk>/borrar/', PostBorrar.as_view(), name="fut-blog-borrar"),
+    path('fut-blog/<int:pk>/actualizar/', PostActualizar.as_view(), name="fut-blog-actualizar"),
+
+    #FUTBLOG REGISTRO LOGIN Y LOGOUT
+    path('fut-blog/signup/', UserSignUp.as_view(), name = "fut-blog-signup"),
+    path('fut-blog/login/', UserLogin.as_view(), name = "fut-blog-login"),
+    path('fut-blog/logout/', UserLogout.as_view(), name = "fut-blog-logout"),
+
+    #FUTBLOG AVATARES
+    path('fut-blog/avatars/<int:pk>/actualizar/', AvatarActualizar.as_view(), name = "fut-blog-avatars-actualizar"),
 
     ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)    
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
