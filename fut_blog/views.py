@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+from fut_blog.models import Post
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from fut_blog.models import Post, Avatar, Post, Mensaje
+from django.contrib.auth.decorators import login_required
 from fut_blog.forms import UsuarioForm
+from fut_blog.models import Post, Mensaje, Avatar
 from django.contrib.auth.admin import User
+
 
 
 
@@ -59,6 +62,8 @@ class AvatarActualizar(UpdateView):
     fields = ['imagen']
     success_url = reverse_lazy('fut-blog-listar')
 
+
+
 # ACTUALIZACION DE INFO
 
 class UserActualizar(UpdateView):
@@ -76,7 +81,7 @@ class MensajeListar(ListView):
     
 class MensajeCrear(CreateView):
     model = Mensaje
-    success_url = reverse_lazy("fut-blog-mensajes-crear") 
+    success_url = reverse_lazy('fut-blog-listar') 
     fields = ['nombre', 'email', 'texto']
     
 

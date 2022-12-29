@@ -95,8 +95,9 @@ urlpatterns = [
     # ABOUT
     path('fut-blog/about', about, name="fut-blog-about"),
 
-    ]
+]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 

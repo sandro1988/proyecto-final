@@ -7,8 +7,8 @@
         {{mensaje.enviado_el}} - - {{mensaje.email}} -- {{mensaje.nombre}} 
         <a href="{% url 'fut-blog-mensajes-borrar' mensaje.id %}">Borrar</a>
         <a href="{% url 'fut-blog-mensajes-detalle' mensaje.id %}">Ver</a>
-      
     </li>
 {% endfor %}
 </ul>
+<a href="{% url 'fut-blog-listar' %}">Volver</a>
 {% endblock %}
